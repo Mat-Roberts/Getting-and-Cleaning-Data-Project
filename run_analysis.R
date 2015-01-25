@@ -22,7 +22,7 @@ activityNames <-  c("Walking", "Walking Upstairs", "Walking Downstairs", "Sittin
 activities <- activityNames[dataY]
 
 tidy <- cbind(Subject = dataSubject, Activity = activities, dataX)
-
+write.table(tidy, "merged_data.txt")
 
 limitedColMeans <- function(data) { colMeans(data[,-c(1,2)]) }
 tidyMeans <- ddply(tidy, .(Subject, Activity), limitedColMeans)
